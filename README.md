@@ -70,3 +70,71 @@ Este é um teste de integração que verifica se uma nova tarefa pode ser adicio
 ### Conclusão
 
 Esses testes são exemplos básicos de como você pode testar as funcionalidades de um aplicativo Flask. Testes unitários e de integração são essenciais para garantir que seu aplicativo esteja funcionando como esperado e para identificar regressões ou problemas potenciais rapidamente durante o desenvolvimento.
+
+
+# Utilizando o Coverage.py em Projetos Python
+
+O `coverage.py` é uma ferramenta poderosa para medir a cobertura de código dos seus testes em projetos Python. Ela ajuda a identificar quais partes do seu código foram executadas durante os testes e quais não foram, permitindo que você melhore a qualidade e a confiabilidade do seu software.
+
+## Instalação
+
+Primeiro, você precisa instalar o `coverage.py`. Isso pode ser feito facilmente com `pip`:
+
+```bash
+pip install coverage
+```
+
+## Medindo a Cobertura dos Testes
+
+Para medir a cobertura dos seus testes, você deve rodar seus testes com o `coverage.py`. Se estiver usando o `pytest` para seus testes, por exemplo, você pode fazer isso assim:
+
+```bash
+coverage run -m pytest
+```
+
+Este comando instrui o `coverage.py` a executar o módulo `pytest`, coletando dados de cobertura enquanto os testes são executados.
+
+## Visualizando o Relatório de Cobertura
+
+Após executar os testes com o `coverage.py`, você pode gerar um relatório simples no terminal:
+
+```bash
+coverage report
+```
+
+Este comando exibirá um relatório que lista cada arquivo testado, junto com estatísticas de cobertura, como o número de linhas cobertas e a porcentagem de cobertura.
+
+## Gerando um Relatório HTML
+
+Para uma visão mais detalhada e navegável da cobertura, você pode gerar um relatório em HTML:
+
+```bash
+coverage html
+```
+
+Isso cria uma pasta chamada `htmlcov`, contendo um relatório HTML detalhado da cobertura. Você pode abrir o arquivo `index.html` dentro dessa pasta em um navegador para explorar a cobertura de cada arquivo, com linhas não cobertas destacadas.
+
+## Interpretação do Relatório
+
+Um exemplo de saída do comando `coverage report` pode ser:
+
+```
+Name          Stmts   Miss  Cover
+---------------------------------
+app.py           13      1    92%
+test_app.py      19      0   100%
+---------------------------------
+TOTAL            32      1    97%
+```
+
+- **Name**: Os arquivos analisados.
+- **Stmts**: O número total de declarações de código no arquivo.
+- **Miss**: O número de declarações não executadas durante os testes.
+- **Cover**: A porcentagem do código que foi coberta pelos testes.
+
+Este relatório mostra que `app.py` tem 92% de seu código coberto pelos testes, enquanto `test_app.py`, provavelmente contendo apenas testes, tem 100% de cobertura. A cobertura total do projeto é de 97%.
+
+## Conclusão
+
+Usar `coverage.py` ajuda a garantir que seus testes sejam abrangentes, cobrindo a maior parte do código possível e reduzindo a chance de bugs. Uma alta porcentagem de cobertura em um projeto é um bom indicador de sua saúde e qualidade.
+```
